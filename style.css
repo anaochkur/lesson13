@@ -1,0 +1,120 @@
+/*
+1. базовая картинка - 1 кол 1 ряд
+2. двойная горизонталь- 1 ряд 2 кол g-item_col-dbl
+3. двойная вертикаль- 2 зяд 1 кол g-item_row-dbl
+4. Full картинка - 2 ряд 2 кол g-item_full
+*/
+
+@import url('./vars.css');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body{
+    min-width: 100vh;
+    font-size: var(--main-font-size);
+    font-family: var(--main-font-family);
+    color: #fff;
+}
+.header,
+.main {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.title_1{
+    font-size: 2.4rem;
+}
+.title_2{
+    text-align: center;
+    margin-bottom: 80px;
+}
+.header {
+    padding: 20px;
+    background-color: #e0e0e0;
+    margin-bottom: 80px;
+    text-align: center;
+}
+.title{
+    font-family: "Delius Unicase", serif;
+    color: #000;
+
+}
+.section{
+    margin-bottom: 120px;
+}
+.gr-item__img{
+    border-radius: 20px;
+    object-fit: contain;
+    height: 100%;
+    filter: blur(1px);
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:repeat(auto-fit, minmax(370px,1fr));
+    gap: 30px;
+}
+.gr-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.gr-item_col-dbl{
+   /* grid-column-start:2 ;
+    grid-column-end:4 ;*/
+    grid-column: span 2;
+}
+
+.gr-item_row-dbl{
+    grid-row: span 2;
+}
+.gr-item_full{
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gr-item__title{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%
+}
+.gr-item__date{
+    color: #e0e0e0;
+    font-weight: 200;
+    
+}
+.gr-item__icons{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+}
+.gr-item:hover>.gr-item__icons{
+    opacity: 1;
+}
+.gr-item__img:hover{
+    filter: blur(0px);
+}
+
+.gr-item__like:hover{
+    opacity: 0.5;
+    
+}
+.gr-item__download:hover{
+    opacity: 0.5;
+}
+
